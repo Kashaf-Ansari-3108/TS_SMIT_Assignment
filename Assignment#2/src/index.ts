@@ -207,7 +207,6 @@ const motorcycle1 = new Motorcycle(
 );
 
 // Testing rent() and return() methods
-console.log("Testing rent() method:");
 car1.rent(); // should display "This vehicle has been rented."
 car1.rent(); // should display "This vehicle is already rented."
 car1.return(); // should display "This vehicle has been returned."
