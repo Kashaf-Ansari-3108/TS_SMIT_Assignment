@@ -21,29 +21,8 @@ abstract class Vehicle {
     return this._rented;
   }
 
-  // Mutator Methods (setters)
-  set make(makeVal: string) {
-    if (!makeVal) {
-      throw new Error("Make cannot be empty .. !");
-    }
-    this._make = makeVal;
-  }
-  set model(modelVal: string) {
-    if (!modelVal) {
-      throw new Error("Model cannot be empty .. !");
-    }
-    this._model = modelVal;
-  }
-  set year(yearVal: number) {
-    if (!yearVal) {
-      throw new Error("Year cannot be empty .. !");
-    }
-    this._year = yearVal;
-  }
+  // Mutator Method (setter)
   set rented(rentedVal: boolean) {
-    if (rentedVal == null) {
-      throw new Error("Rented value cannot be empty.");
-    }
     this._rented = rentedVal;
   }
 
@@ -66,7 +45,7 @@ abstract class Vehicle {
       this.rented = false;
       console.log("This vehicle has been returned.");
     } else {
-      console.log("This vehicle has not been rented.");
+      console.log("This vehicle has not been returened.");
     }
   }
 }
@@ -90,20 +69,6 @@ class Car extends Vehicle {
   }
   get seatingCapacity(): number {
     return this._seatingCapacity;
-  }
-
-  // Mutator Methods (setters)
-  set mileAge(mileAgeVal: number) {
-    if (!mileAgeVal) {
-      throw new Error("Mileage cannot be empty .. !");
-    }
-    this._mileAge = mileAgeVal;
-  }
-  set seatingCapacity(seatingCapacityVal: number) {
-    if (!seatingCapacityVal) {
-      throw new Error("Model cannot be empty .. !");
-    }
-    this._seatingCapacity = seatingCapacityVal;
   }
 
   // Abstract Method
@@ -132,21 +97,6 @@ class Truck extends Vehicle {
   get towingCapacity(): number {
     return this._towingCapacity;
   }
-
-  // Mutator Methods (setters)
-  set payloadCapacity(payloadCapacityVal: number) {
-    if (!payloadCapacityVal) {
-      throw new Error("Mileage cannot be empty .. !");
-    }
-    this._payloadCapacity = payloadCapacityVal;
-  }
-  set towingCapacity(towingCapacityVal: number) {
-    if (!towingCapacityVal) {
-      throw new Error("Model cannot be empty .. !");
-    }
-    this._towingCapacity = towingCapacityVal;
-  }
-
   // Abstract Method
   rentalRate() {
     return 100; // rental rate for a truck is $100 per day
@@ -174,20 +124,6 @@ class Motorcycle extends Vehicle {
     return this._fuelEfficiency;
   }
 
-  // Mutator Methods (setters)
-  set engineDisplacement(engineDisplacementVal: number) {
-    if (!engineDisplacementVal) {
-      throw new Error("Mileage cannot be empty .. !");
-    }
-    this._engineDisplacement = engineDisplacementVal;
-  }
-  set fuelEfficiency(fuelEfficiencyVal: number) {
-    if (!fuelEfficiencyVal) {
-      throw new Error("Model cannot be empty .. !");
-    }
-    this._fuelEfficiency = fuelEfficiencyVal;
-  }
-
   // Abstract Method
   rentalRate() {
     return 25; // rental rate for a motorcycle is $25 per day
@@ -207,15 +143,21 @@ const motorcycle1 = new Motorcycle(
 );
 
 // Testing rent() and return() methods
-car1.rent(); // should display "This vehicle has been rented."
-car1.rent(); // should display "This vehicle is already rented."
-car1.return(); // should display "This vehicle has been returned."
-car1.return(); // should display "This vehicle has not been rented."
-truck1.rent(); // should display "This vehicle has been rented."
-truck1.rent(); // should display "This vehicle is already rented."
-truck1.return(); // should display "This vehicle has been returned."
-truck1.return(); // should display "This vehicle has not been rented."
-motorcycle1.rent(); // should display "This vehicle has been rented."
-motorcycle1.rent(); // should display "This vehicle is already rented."
-motorcycle1.return(); // should display "This vehicle has been returned."
-motorcycle1.return(); // should display "This vehicle has not been rented."
+
+car1.rent();
+car1.rent();
+car1.return();
+car1.return();
+
+truck1.rent();
+truck1.rent();
+truck1.return();
+truck1.return();
+
+
+motorcycle1.rent();
+motorcycle1.rent();
+motorcycle1.return();
+motorcycle1.return();
+
+

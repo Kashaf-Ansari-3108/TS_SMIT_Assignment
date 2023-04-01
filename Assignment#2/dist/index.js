@@ -20,29 +20,8 @@ class Vehicle {
     get rented() {
         return this._rented;
     }
-    // Mutator Methods (setters)
-    set make(makeVal) {
-        if (!makeVal) {
-            throw new Error("Make cannot be empty .. !");
-        }
-        this._make = makeVal;
-    }
-    set model(modelVal) {
-        if (!modelVal) {
-            throw new Error("Model cannot be empty .. !");
-        }
-        this._model = modelVal;
-    }
-    set year(yearVal) {
-        if (!yearVal) {
-            throw new Error("Year cannot be empty .. !");
-        }
-        this._year = yearVal;
-    }
+    // Mutator Method (setter)
     set rented(rentedVal) {
-        if (rentedVal == null) {
-            throw new Error("Rented value cannot be empty.");
-        }
         this._rented = rentedVal;
     }
     // Rent Method
@@ -62,7 +41,7 @@ class Vehicle {
             console.log("This vehicle has been returned.");
         }
         else {
-            console.log("This vehicle has not been rented.");
+            console.log("This vehicle has not been returened.");
         }
     }
 }
@@ -79,19 +58,6 @@ class Car extends Vehicle {
     }
     get seatingCapacity() {
         return this._seatingCapacity;
-    }
-    // Mutator Methods (setters)
-    set mileAge(mileAgeVal) {
-        if (!mileAgeVal) {
-            throw new Error("Mileage cannot be empty .. !");
-        }
-        this._mileAge = mileAgeVal;
-    }
-    set seatingCapacity(seatingCapacityVal) {
-        if (!seatingCapacityVal) {
-            throw new Error("Model cannot be empty .. !");
-        }
-        this._seatingCapacity = seatingCapacityVal;
     }
     // Abstract Method
     rentalRate() {
@@ -112,19 +78,6 @@ class Truck extends Vehicle {
     get towingCapacity() {
         return this._towingCapacity;
     }
-    // Mutator Methods (setters)
-    set payloadCapacity(payloadCapacityVal) {
-        if (!payloadCapacityVal) {
-            throw new Error("Mileage cannot be empty .. !");
-        }
-        this._payloadCapacity = payloadCapacityVal;
-    }
-    set towingCapacity(towingCapacityVal) {
-        if (!towingCapacityVal) {
-            throw new Error("Model cannot be empty .. !");
-        }
-        this._towingCapacity = towingCapacityVal;
-    }
     // Abstract Method
     rentalRate() {
         return 100; // rental rate for a truck is $100 per day
@@ -144,19 +97,6 @@ class Motorcycle extends Vehicle {
     get fuelEfficiency() {
         return this._fuelEfficiency;
     }
-    // Mutator Methods (setters)
-    set engineDisplacement(engineDisplacementVal) {
-        if (!engineDisplacementVal) {
-            throw new Error("Mileage cannot be empty .. !");
-        }
-        this._engineDisplacement = engineDisplacementVal;
-    }
-    set fuelEfficiency(fuelEfficiencyVal) {
-        if (!fuelEfficiencyVal) {
-            throw new Error("Model cannot be empty .. !");
-        }
-        this._fuelEfficiency = fuelEfficiencyVal;
-    }
     // Abstract Method
     rentalRate() {
         return 25; // rental rate for a motorcycle is $25 per day
@@ -167,17 +107,16 @@ const car1 = new Car("Honda", "Civic", 2021, false, 15000, 5);
 const truck1 = new Truck("Ford", "F-150", 2022, false, 3000, 10000);
 const motorcycle1 = new Motorcycle("Harley Davidson", "Road King", 2020, false, 1600, 35);
 // Testing rent() and return() methods
-console.log("Testing rent() method:");
-car1.rent(); // should display "This vehicle has been rented."
-car1.rent(); // should display "This vehicle is already rented."
-car1.return(); // should display "This vehicle has been returned."
-car1.return(); // should display "This vehicle has not been rented."
-truck1.rent(); // should display "This vehicle has been rented."
-truck1.rent(); // should display "This vehicle is already rented."
-truck1.return(); // should display "This vehicle has been returned."
-truck1.return(); // should display "This vehicle has not been rented."
-motorcycle1.rent(); // should display "This vehicle has been rented."
-motorcycle1.rent(); // should display "This vehicle is already rented."
-motorcycle1.return(); // should display "This vehicle has been returned."
-motorcycle1.return(); // should display "This vehicle has not been rented."
+car1.rent();
+car1.rent();
+car1.return();
+car1.return();
+truck1.rent();
+truck1.rent();
+truck1.return();
+truck1.return();
+motorcycle1.rent();
+motorcycle1.rent();
+motorcycle1.return();
+motorcycle1.return();
 //# sourceMappingURL=index.js.map
